@@ -4,90 +4,50 @@ successfully() {
   $* || (echo "failed" 1>&2 && exit 1)
 }
 
-echo "Checking for SSH key, generating one if it doesn't exist ..."
+echo "SSHの鍵が存在しなかったら作成します..."
   [[ -f ~/.ssh/id_rsa.pub ]] || ssh-keygen -t rsa
 
-echo "Copying public key to clipboard. Paste it into your Github account ..."
-  [[ -f ~/.ssh/id_rsa.pub ]] && cat ~/.ssh/id_rsa.pub | pbcopy
-  successfully open https://github.com/account/ssh
-
-echo "Fixing permissions ..."
+echo "パーミッションを修正します..."
   successfully sudo mkdir -p /usr/local
   successfully sudo chown -R `whoami` /usr/local
 
-echo "Installing Homebrew, a good OS X package manager ..."
+echo "Homebrewをインストールします..."
   successfully ruby <(curl -fsS https://raw.github.com/mxcl/homebrew/go)
   successfully brew update
 
-echo "Putting Homebrew location earlier in PATH ..."
+echo "HomebrewがインストールされたディレクトリをPATHに追加します..."
   successfully echo "
 # recommended by brew doctor
-export PATH='/usr/local/bin:$PATH'" >> ~/.zshenv
-  successfully source ~/.zshenv
+export PATH='/usr/local/bin:$PATH'" >> ~/.bashrc
+  successfully source ~/.bashrc
 
-echo "Installing GNU Compiler Collection and dependencies ..."
+echo "GCCなどをインストールします..."
   successfully brew tap homebrew/dupes
   successfully brew install autoconf automake apple-gcc42
 
-echo "Installing system libraries recommended for Ruby ..."
+echo "Rubyをインストールするのに必要なパッケージをインストールします..."
   successfully brew install gdbm libffi libksba libyaml
 
-echo "Installing Postgres, a good open source relational database ..."
-  successfully brew install postgres --no-python
-  successfully initdb /usr/local/var/postgres -E utf8
+echo "MySQLをインストールします..."
+  successfully brew install mysql
 
-echo "Installing Redis, a good key-value database ..."
+echo "Redisをインストールします..."
   successfully brew install redis
 
-echo "Installing ack, for searching the contents of files ..."
-  successfully brew install ack
-
-echo "Installing ctags, for indexing files for vim tab completion of methods, classes, variables ..."
-  successfully brew install ctags
-
-echo "Installing tmux, for saving project state and switching between projects ..."
-  successfully brew install tmux
-
-echo "Installing reattach-to-user-namespace, for copy-paste and RubyMotion compatibility with tmux ..."
-  successfully brew install reattach-to-user-namespace
-
-echo "Installing ImageMagick, for cropping and re-sizing images ..."
+echo "ImageMagickをインストールします..."
   successfully brew install imagemagick
 
-echo "Installing QT, used by Capybara Webkit for headless Javascript integration testing ..."
+echo "QTをインストールします..."
   successfully brew install qt
 
-echo "Installing watch, used to execute a program periodically and show the output ..."
-  successfully brew install watch
+echo "RVMをインストールします..."
+  successfully curl -L https://get.rvm.io | bash -s stable
 
-echo "Installing rbenv for changing Ruby versions ..."
-  successfully brew install rbenv
-  successfully echo 'eval "$(rbenv init -)"' >> ~/.zlogin
-  successfully source ~/.zlogin
+echo "Ruby 1.9.3-p125をインストールします..."
+  successfully CC=gcc-4.2 rvm install 1.9.3-p125
 
-echo "Installing rbenv-gem-rehash so the shell automatically picks up binaries after installing gems with binaries..."
-  successfully brew install rbenv-gem-rehash
+echo "Ruby 1.9.2-p318をインストールします..."
+  successfully CC=gcc-4.2 rvm install 1.9.2-p318
 
-echo "Installing ruby-build for installing Rubies ..."
-  successfully brew install ruby-build
-
-echo "Installing Ruby 1.9.3-p392 ..."
-  successfully CC=gcc-4.2 rbenv install 1.9.3-p392
-
-echo "Setting Ruby 1.9.3-p392 as global default Ruby ..."
-  successfully rbenv global 1.9.3-p392
-
-echo "Update to latest Rubygems version ..."
-  successfully gem update --system
-
-echo "Installing critical Ruby gems for Rails development ..."
-  successfully gem install bundler foreman pg rails thin --no-rdoc --no-ri
-
-echo "Installing standalone Heroku CLI client."
-  successfully brew install heroku-toolbelt
-
-echo "Installing the heroku-config plugin for pulling config variables locally to be used as ENV variables ..."
-  successfully heroku plugins:install git://github.com/ddollar/heroku-config.git
-
-echo "Your shell will now restart in order for changes to apply."
+echo "シェルを再起動します..."
   exec $SHELL -l
