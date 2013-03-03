@@ -12,39 +12,31 @@
 Xcodeからインストールすることができます。
 
 
-### Zshをデフォルトのシェルに設定する
-
-以下のコマンドを実行すると、デフォルトのシェルがZshになります。
-
-```
-chsh -s /bin/zsh
-```
-
 ### Laptopのプログラムを実行する
 
 ```
-zsh <(curl -s https://raw.github.com/bojovs/laptop/master/mac)
+bash <(curl -s https://raw.github.com/bojovs/laptop/master/mac)
 ```
 
 ## 行なっていること
 
 * SSH鍵の作成
 * Homebrewのインストール
-* Rubyのインストールに必要なパッケージのインストール
-  * autoconf
-  * automake
-  * apple-gcc42
-  * gdbm
-  * libffi
-  * libksba
-  * libyaml
-* MySQLのインストール
-* Redisのインストール
-* ImageMagickのインストール
-* Qtのインストール
+  * Rubyのインストールに必要なパッケージのインストール
+    * autoconf
+    * automake
+    * apple-gcc42
+    * gdbm
+    * libffi
+    * libksba
+    * libyaml
+  * MySQLのインストール
+  * Redisのインストール
+  * ImageMagickのインストール
+  * Qtのインストール
 * RVMのインストール
-* Ruby 1.9.2-p318のインストール
-* Ruby 1.9.3-p125のインストール
+  * Ruby 1.9.2-p318のインストール
+  * Ruby 1.9.3-p125のインストール
 
 
 ## License
