@@ -22,6 +22,7 @@ export PATH='/usr/local/bin:$PATH'" >> ~/.bashrc
   successfully source ~/.bashrc
 
 echo "GCCなどをインストールします..."
+  successfully brew untap homebrew/dupes
   successfully brew tap homebrew/dupes
   successfully brew install autoconf automake apple-gcc42
 
@@ -30,9 +31,15 @@ echo "Rubyをインストールするのに必要なパッケージをインス�
 
 echo "MySQLをインストールします..."
   successfully brew install mysql
+  successfully unset TMPDIR
+  successfully mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
+  successfully ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
+  successfully launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 
 echo "Redisをインストールします..."
   successfully brew install redis
+  successfully ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
+  successfully launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
 
 echo "ImageMagickをインストールします..."
   successfully brew install imagemagick
