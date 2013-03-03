@@ -7,7 +7,7 @@ successfully() {
 echo "SSHの鍵が存在しなかったら作成します..."
   [[ -f ~/.ssh/id_rsa.pub ]] || ssh-keygen -t rsa
 
-echo "パーミッションを修正します..."
+echo "パーミッションを修正します。マシンのパスワードを入力してください..."
   successfully sudo mkdir -p /usr/local
   successfully sudo chown -R `whoami` /usr/local
 
