@@ -43,11 +43,11 @@ echo "QTをインストールします..."
 echo "RVMをインストールします..."
   successfully curl -L https://get.rvm.io | bash -s stable
 
-echo "Ruby 1.9.3-p125をインストールします..."
-  successfully CC=gcc-4.2 rvm install 1.9.3-p125
-
 echo "Ruby 1.9.2-p318をインストールします..."
-  successfully CC=gcc-4.2 rvm install 1.9.2-p318
+  successfully rvm install 1.9.2-p318 --default
+
+echo "Ruby 1.9.3-p125をインストールします..."
+  successfully rvm install 1.9.3-p125
 
 echo "シェルを再起動します..."
   exec $SHELL -l
