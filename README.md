@@ -18,6 +18,9 @@ Xcodeからインストールすることができます。
 bash <(curl -s https://raw.github.com/bojovs/laptop/master/mac)
 ```
 
+処理が終わるまで20分ほどかかります。
+
+
 ## 行なっていること
 
 * SSH鍵の作成
@@ -37,19 +40,6 @@ bash <(curl -s https://raw.github.com/bojovs/laptop/master/mac)
 * RVMのインストール
   * Ruby 1.9.2-p318のインストール
   * Ruby 1.9.3-p125のインストール
-
-
-## その他
-
-### 初期化の手順
-
-```
-$ rm -rf ~/.ssh
-$ rvm implode
-$ rm -rf /usr/local/Cellar /usr/local/.git && brew cleanup
-```
-
-https://gist.github.com/mxcl/1173223
 
 
 ## License
