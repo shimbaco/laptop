@@ -37,7 +37,7 @@ echo "Redisをインストールします..."
 echo "ImageMagickをインストールします..."
   successfully brew install imagemagick
 
-echo "QTをインストールします..."
+echo "Qtをインストールします..."
   successfully brew install qt
 
 echo "RVMをインストールします..."
