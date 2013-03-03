@@ -39,6 +39,19 @@ bash <(curl -s https://raw.github.com/bojovs/laptop/master/mac)
   * Ruby 1.9.3-p125のインストール
 
 
+## その他
+
+### 初期化の手順
+
+```
+$ rm -rf ~/.ssh
+$ rvm implode
+$ rm -rf /usr/local/Cellar /usr/local/.git && brew cleanup
+```
+
+https://gist.github.com/mxcl/1173223
+
+
 ## License
 
 Laptop is © 2011-2013 thoughtbot, inc. It is free software, and may be
