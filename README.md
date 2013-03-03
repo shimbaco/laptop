@@ -22,18 +22,18 @@ bash <(curl -s https://raw.github.com/bojovs/laptop/master/mac)
 
 * SSH鍵の作成
 * Homebrewのインストール
-  * Rubyのインストールに必要なパッケージのインストール
-    * autoconf
-    * automake
-    * apple-gcc42
-    * gdbm
-    * libffi
-    * libksba
-    * libyaml
-  * MySQLのインストール
-  * Redisのインストール
-  * ImageMagickのインストール
-  * Qtのインストール
+* Rubyのインストールに必要なパッケージのインストール
+  * autoconf
+  * automake
+  * apple-gcc42
+  * gdbm
+  * libffi
+  * libksba
+  * libyaml
+* MySQLのインストール
+* Redisのインストール
+* ImageMagickのインストール
+* Qtのインストール
 * RVMのインストール
   * Ruby 1.9.2-p318のインストール
   * Ruby 1.9.3-p125のインストール
