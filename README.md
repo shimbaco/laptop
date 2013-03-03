@@ -1,67 +1,53 @@
-Laptop
-======
+# Laptop
 
-Laptop is a script to set up a Mac OS X laptop for Rails development.
+## 環境
 
-Requirements
-------------
+* Mac OS X 10.8 (Mountain Lion)
 
-1) Install a C compiler.
 
-Use [OS X GCC Installer](https://github.com/kennethreitz/osx-gcc-installer/) for
-Snow Leopard (OS X 10.6).
+## 手順
 
-Use [Command Line Tools for XCode](https://developer.apple.com/downloads/index.action)
-for Lion (OS X 10.7) or Mountain Lion (OS X 10.8).
+### Command Line Tools for Xcodeをインストールする
 
-2) Set zsh as your login shell.
+Xcodeからインストールすることができます。
 
-    chsh -s /bin/zsh
 
-Install
--------
+### Zshをデフォルトのシェルに設定する
 
-Run the script:
+以下のコマンドを実行すると、デフォルトのシェルがZshになります。
 
-    zsh <(curl -s https://raw.github.com/thoughtbot/laptop/master/mac)
+```
+chsh -s /bin/zsh
+```
 
-What it sets up
----------------
+### Laptopのプログラムを実行する
 
-* Ack for finding things in files
-* Bundler gem for managing Ruby libraries
-* Exuberant Ctags for indexing files for vim tab completion
-* Foreman gem for serving Rails apps locally
-* Heroku Config plugin for local `ENV` variables
-* Heroku Toolbelt for interacting with the Heroku API
-* Homebrew for managing operating system libraries
-* ImageMagick for cropping and resizing images
-* Postgres for storing relational data
-* Postgres gem for talking to Postgres from Ruby
-* Qt for headless JavaScript testing via Capybara Webkit
-* Rails gem for writing web applications
-* Rbenv for managing versions of the Ruby programming language
-* Redis for storing key-value data
-* Ruby Build for installing Rubies
-* Ruby stable for writing general-purpose code
-* SSH public key for authenticating with Github and Heroku
-* Tmux for saving project state and switching between projects
-* Watch for periodically executing a program and displaying the output
+```
+zsh <(curl -s https://raw.github.com/bojovs/laptop/master/mac)
+```
 
-It should take less than 15 minutes to install (depends on your machine).
+## 行なっていること
 
-Credits
--------
+* SSH鍵の作成
+* Homebrewのインストール
+* Rubyのインストールに必要なパッケージのインストール
+  * autoconf
+  * automake
+  * apple-gcc42
+  * gdbm
+  * libffi
+  * libksba
+  * libyaml
+* MySQLのインストール
+* Redisのインストール
+* ImageMagickのインストール
+* Qtのインストール
+* RVMのインストール
+* Ruby 1.9.2-p318のインストール
+* Ruby 1.9.3-p125のインストール
 
-![thoughtbot](http://thoughtbot.com/assets/tm/logo.png)
 
-Laptop is maintained and funded by [thoughtbot, inc](http://thoughtbot.com/community).
-The names and logos for thoughtbot are trademarks of thoughtbot, inc.
-
-Thank you, [contributors](/thoughtbot/laptop/graphs/contributors)!
-
-License
--------
+## License
 
 Laptop is © 2011-2013 thoughtbot, inc. It is free software, and may be
 redistributed under the terms specified in the LICENSE file.
