@@ -12,7 +12,7 @@ echo "パーミッションを修正します。マシンのパスワードを�
   successfully sudo chown -R `whoami` /usr/local
 
 echo "Homebrewをインストールします..."
-  successfully ruby <(curl -fsS https://raw.github.com/mxcl/homebrew/go)
+  successfully ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
   successfully brew update
 
 echo "HomebrewがインストールされたディレクトリをPATHに追加します..."
